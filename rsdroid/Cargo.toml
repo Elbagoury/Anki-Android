@@ -9,3 +9,7 @@ crate_type = ["dylib"]
 
 [dependencies]
 jni = { version = "0.5.2", default-features = false }
+anki = { git = "https://github.com/ankitects/anki.git", tag = "2.1.21" }
+serde_derive = "1.0.104"
+serde = "1.0.104"
+serde_json = "1.0.48"
