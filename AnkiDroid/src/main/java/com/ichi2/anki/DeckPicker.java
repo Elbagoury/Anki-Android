@@ -106,6 +106,8 @@ import com.ichi2.utils.ImportUtils;
 import com.ichi2.utils.VersionUtils;
 import com.ichi2.widget.WidgetStatus;
 
+import net.ankiweb.rsdroid.RSDroid;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

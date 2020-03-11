@@ -119,11 +119,21 @@ tasks.withType(JavaCompile) {
 
 apply from: "./jacoco.gradle"
 
+apply plugin: 'org.mozilla.rust-android-gradle.rust-android'
+
+cargo {
+    module  = "../rsdroid"
+    libname = "rsdroid"
+    targets = ["arm", "x86"]
+    profile = 'release'
+    apiLevel = 21
+}
+
 dependencies {
     compileOnly "com.google.auto.service:auto-service-annotations:1.0-rc6"
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc6"
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.so'])
     //noinspection GradleDependency
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     // Note: the design support library can be quite buggy, so test everything thoroughly before updating it
@@ -172,3 +182,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test:rules:1.2.0'
 }
+
+preBuild.dependsOn "cargoBuild"

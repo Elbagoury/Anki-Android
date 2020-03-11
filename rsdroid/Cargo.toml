@@ -1,0 +1,11 @@
+[package]
+name = "rsdroid"
+version = "0.1.0"
+authors = ["Damien Elmes <gpg@ankiweb.net>"]
+edition = "2018"
+
+[lib]
+crate_type = ["dylib"]
+
+[dependencies]
+jni = { version = "0.5.2", default-features = false }
