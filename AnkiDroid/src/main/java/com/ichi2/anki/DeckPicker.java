@@ -115,6 +115,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.TreeMap;
@@ -851,6 +852,11 @@ public class DeckPicker extends NavigationDrawerActivity implements
      * Automatic sync
      */
     private void onFinishedStartup() {
+        int[] output = RSDroid.timingToday(1533564000, 360, 0);
+        String x = Arrays.toString(output);
+        // In Australia on 11 Mar, prints "[583, 1583935200]"
+        UIUtils.showThemedToast(DeckPicker.this, x, false);
+
         // create backup in background if needed
         BackupManager.performBackupInBackground(getCol().getPath());
 
