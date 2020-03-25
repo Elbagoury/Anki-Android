@@ -25,6 +25,7 @@ android {
         testApplicationId "com.ichi2.anki.tests"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        multiDexEnabled true
 
         // This enables long timeouts required on slow ARM emulators, e.g. Travis
         adbOptions {
@@ -151,6 +152,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.12.8'
     implementation 'com.arcao:slf4j-timber:3.1'
 
+    // this can be removed when API min set to 21 or later
+    implementation 'com.android.support:multidex:1.0.3'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.core:core-ktx:+"
