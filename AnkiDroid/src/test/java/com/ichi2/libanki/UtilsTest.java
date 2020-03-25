@@ -84,4 +84,9 @@ public class UtilsTest {
         Utils.copyFile(new File(resource.getFile()), copy);
         Assert.assertEquals(TestUtils.getMD5(resourcePath), TestUtils.getMD5(copy.getCanonicalPath()));
     }
+
+    @Test
+    public void testKotlin() {
+        Assert.assertTrue(ExampleKt.exampleFunc());
+    }
 }
